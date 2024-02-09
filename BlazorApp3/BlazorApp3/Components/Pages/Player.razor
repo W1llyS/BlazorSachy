@@ -1,0 +1,31 @@
+﻿@page "/Player"
+@using BlazorApp3.Data.Classes
+@using BlazorApp3.Data.Services
+@inject PlayerService PlayerService
+
+<PageTitle>Player</PageTitle>
+
+
+
+@if (playerList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var Pla in playerList)
+    {
+        <div>
+            <p>@Pla.Krestni --- @Pla.Prijmeni --- @Pla.Narozen --- @Pla.Elo </p>
+        </div>
+    }
+}
+
+@code {
+    private List<Player1>? playerList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        playerList = await PlayerService.GetPlayersAsync();  // Ensure you have the 'Async' suffix and parentheses
+    }
+}

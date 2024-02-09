@@ -1,0 +1,31 @@
+﻿@page "/ProKlikaciTabulka"
+@using BlazorApp3.Data.Classes
+@using BlazorApp3.Data.Services
+@inject ProklikaciTabulkuServices ProKlikaciTabulkuServices 
+
+<PageTitle>Tabulka</PageTitle>
+
+
+
+@if (proklikaciTabulkaList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var ProTab in proklikaciTabulkaList)
+    {
+        <div>
+            <p>@ProTab.Hrac --- @ProTab.Klub --- @ProTab.Body --- @ProTab.Sb  --- @ProTab.Odehrane--- @ProTab.Procento--- @ProTab.IdTurnaj--- @ProTab.IdHrac</p>
+        </div>
+    }
+}
+
+@code {
+    private List<ProKlikaciTabulka1>? proklikaciTabulkaList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        proklikaciTabulkaList = await ProKlikaciTabulkuServices.GetProKlikaciTabulka1sAsync();  // Ensure you have the 'Async' suffix and parentheses
+    }
+}

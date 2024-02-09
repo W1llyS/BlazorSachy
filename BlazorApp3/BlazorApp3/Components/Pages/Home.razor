@@ -1,0 +1,31 @@
+﻿@page "/"
+@using BlazorApp3.Data.Classes
+@using BlazorApp3.Data.Services
+@inject OznameniService OznameniService
+
+<PageTitle>Home</PageTitle>
+
+
+
+@if (oznameniList == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    foreach (var oznameni in oznameniList)
+    {
+        <div>
+            <p>@oznameni.Zprava - @oznameni.Datum - @oznameni.Autor</p>
+        </div>
+    }
+}
+
+@code {
+    private List<Oznameni>? oznameniList;
+
+    protected override async Task OnInitializedAsync()
+    {
+        oznameniList = await OznameniService.GetOznameniAsync();
+    }
+}

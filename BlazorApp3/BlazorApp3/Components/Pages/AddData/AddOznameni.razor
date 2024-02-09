@@ -1,0 +1,60 @@
+﻿@page "/addoznameni"
+@using BlazorApp3.Data.Classes
+@using BlazorApp3.Data.Services
+@inject OznameniService oznameniService
+
+<h3 class="text-center mb-4">Add Announcement</h3>
+
+<EditForm Model="@oznameni" OnValidSubmit="HandleValidSubmit" FormName="oznameniForm">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            <label for="Zprava">Message:</label>
+            <InputText id="Zprava" @bind-Value="oznameni.Zprava" class="form-control" placeholder="Enter your message" />
+            <ValidationMessage For="@(() => oznameni.Zprava)" />
+        </div>
+
+        <div class="form-group col-md-6">
+            <label for="Datum">Date:</label>
+            <InputText id="Datum" @bind-Value="oznameni.Datum" class="form-control" placeholder="MM/DD/YYYY" />
+            <ValidationMessage For="@(() => oznameni.Datum)" />
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="Autor">Author:</label>
+        <InputText id="Autor" @bind-Value="oznameni.Autor" class="form-control" placeholder="Author's name" />
+        <ValidationMessage For="@(() => oznameni.Autor)" />
+    </div>
+
+    <div class="text-center">
+        <button type="submit" class="btn btn-success">Submit Announcement</button>
+    </div>
+</EditForm>
+
+<style>
+    .form-row {
+        margin-bottom: 1rem;
+    }
+
+    .form-group {
+        margin-bottom: 1rem;
+    }
+
+    .text-center {
+        margin-top: 2rem;
+    }
+</style>
+
+@code {
+    [SupplyParameterFromForm]
+    private Oznameni oznameni { get; set; } = new Oznameni();
+    
+    public async Task HandleValidSubmit()
+    {
+        await oznameniService.AddOznameniAsync(oznameni);
+        oznameni = new Oznameni(); // Reset the model for another input
+    }
+}
