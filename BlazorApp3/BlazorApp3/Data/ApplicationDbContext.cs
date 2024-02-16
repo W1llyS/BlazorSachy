@@ -1,6 +1,6 @@
+using BlazorApp3.Data.Classes; // Ensure this using directive is correct for your Oznameni class location
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using BlazorApp3.Data.Classes; // Ensure this using directive is correct for your Oznameni class location
 
 namespace BlazorApp3.Data
 {

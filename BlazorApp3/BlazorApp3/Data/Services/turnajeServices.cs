@@ -1,8 +1,5 @@
-﻿using BlazorApp3.Data;
-using BlazorApp3.Data.Classes;
+﻿using BlazorApp3.Data.Classes;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BlazorApp3.Data.Services
 {
@@ -17,12 +14,12 @@ namespace BlazorApp3.Data.Services
         }
 
         public async Task<List<Turnaj1>> GetTurnaj1sAsync()
-            
+
 
 
         {
             return await _context.Turnaj1s.ToListAsync();
-           
+
 
         }
     }

@@ -1,8 +1,5 @@
-﻿using BlazorApp3.Data;
-using BlazorApp3.Data.Classes;
+﻿using BlazorApp3.Data.Classes;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BlazorApp3.Data.Services
 {
@@ -21,10 +18,16 @@ namespace BlazorApp3.Data.Services
                          .OrderByDescending(i => i.IdZ) // Works naturally with IDZ
                          .ToListAsync();
         }
-        public async Task AddOznameniAsync(Oznameni oznameni)    //////////////////////       az 8.2
+        public async Task AddOznameniAsync(Oznameni oznameni)    // metoda ktera uklada data do databaze z addOznameni.razor
         {
-            _context.Oznameni1s.Add(oznameni);         ///////////////////////////////
-            await _context.SaveChangesAsync(); //////////////////////////////////////////////
+            _context.Oznameni1s.Add(oznameni);         
+            await _context.SaveChangesAsync(); 
         }
+
+        
+
+
+
+
     }
 }

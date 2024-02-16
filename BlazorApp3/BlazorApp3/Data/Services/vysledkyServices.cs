@@ -1,8 +1,5 @@
-﻿using BlazorApp3.Data;
-using BlazorApp3.Data.Classes;
+﻿using BlazorApp3.Data.Classes;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BlazorApp3.Data.Services
 {

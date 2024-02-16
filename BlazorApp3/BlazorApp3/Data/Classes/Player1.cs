@@ -6,7 +6,7 @@ namespace BlazorApp3.Data.Classes
     [Table("Players")] // This specifies the table name in the database
     public class Player1
     {
-        
+
 
         [Key]
         public int? IdPlayer { get; set; }

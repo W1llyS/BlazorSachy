@@ -1,8 +1,5 @@
-﻿using BlazorApp3.Data;
-using BlazorApp3.Data.Classes; // Ensure this is correctly pointing to where Player1 is defined
+﻿using BlazorApp3.Data.Classes; // Ensure this is correctly pointing to where Player1 is defined
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace BlazorApp3.Data.Services
 {
